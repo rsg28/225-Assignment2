@@ -257,20 +257,28 @@ class AvlTree
    void balance( AvlNode * & t )
    {
        if( t == nullptr )
+       {
            return;
-      
+       }
        if( height( t->left ) - height( t->right ) > ALLOWED_IMBALANCE )
-           if( height( t->left->left ) >= height( t->left->right ) )
+       {
+           if( height( t->left->left ) >= height( t->left->right ) ){
                rotateWithLeftChild( t );
-           else
+               }
+           else{
                doubleWithLeftChild( t );
+           }
+       }
        else
-       if( height( t->right ) - height( t->left ) > ALLOWED_IMBALANCE )
-           if( height( t->right->right ) >= height( t->right->left ) )
+       {
+       if( height( t->right ) - height( t->left ) > ALLOWED_IMBALANCE ){
+           if( height( t->right->right ) >= height( t->right->left ) ){
                rotateWithRightChild( t );
-           else
-               doubleWithRightChild( t );
-              
+               }
+           else{
+               doubleWithRightChild( t );}
+        }
+       }
        t->height = max( height( t->left ), height( t->right ) ) + 1;
    }
   

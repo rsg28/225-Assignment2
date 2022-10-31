@@ -18,7 +18,7 @@ double elapsed_time(clock_t start, clock_t finish)
 
 int main()
 {
-    cout << setprecision(32);
+    cout << setprecision(6);
     srand(time(0));
     cout << "=====================================" << endl;
     cout << "Start of Part2" << endl;
@@ -32,8 +32,8 @@ int main()
     // Declarations...
 
     // Result 1
-    int averageInsertionT1 = 0;
-    int averageInsertionT2 = 0;
+    double averageInsertionT1 = 0;
+    double averageInsertionT2 = 0;
 
     // Result 2
     int averageDepthT1 = 0;
@@ -44,17 +44,17 @@ int main()
     int heightT2 = 0;
 
     // Result 4
-    int averageMembershipT1 = 0;
-    int averageMembershipT2 = 0;
+    double averageMembershipT1 = 0;
+    double averageMembershipT2 = 0;
 
     int insertVal;
     clock_t start, finish;
     cout << "------------------------Executing Insertion Phase------------------------" << endl;
     cout << "Specifications:" << endl;
-    cout << "- Inserting 5000 random numbers [0, 999999] into T2 (AVL Tree) " << endl;
-    cout << "- Inserting 5000 random numbers [0, 999999] into T1 (Binary Search Tree) " << endl;
+    cout << "- Inserting 1000000 random numbers [0, 999999] into T2 (AVL Tree) " << endl;
+    cout << "- Inserting 1000000 random numbers [0, 999999] into T1 (Binary Search Tree) " << endl;
     cout << "- Note that the insert time on each T1 and T2 is recorded and stored" << endl;
-    for (int i = 0; i < 5000; i++)
+    for (int i = 0; i < 2000000; i++)
     {
         insertVal = rand() % 1000000;
 
@@ -70,8 +70,8 @@ int main()
     }
 
     // Average Insertion time Results
-    averageInsertionT1 = averageInsertionT1;
-    averageInsertionT2 = averageInsertionT2;
+    averageInsertionT1 = averageInsertionT1 / 2000000;
+    averageInsertionT2 = averageInsertionT2 / 2000000;
     cout << "...Results obtained and stored" << endl;
 
     cout << "------------------------Executing Depth/Height Testing Phase------------------------" << endl;

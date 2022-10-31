@@ -22,7 +22,7 @@ double elapsed_time(clock_t start, clock_t finish)
 
 int main()
 {
-    cout << setprecision(32);
+    cout << setprecision(8);
     srand(time(0));
     cout << "====================================" << endl;
     cout << "Part1" << endl;
@@ -42,8 +42,8 @@ int main()
     clock_t start, finish;
     cout << "------------------------Executing Insertion Phase------------------------" << endl;
     cout << "Specifications:" << endl;
-    cout << "- Inserting 100000 random numbers [0, 999999] into T2" << endl;
-    for (int i = 0; i < 1000000; i++)
+    cout << "- Inserting 5000 random numbers [0, 999999] into T2" << endl;
+    for (int i = 0; i < 5000; i++)
     {
         insertVal = rand() % 1000000;
         T2.insert(insertVal);
@@ -60,7 +60,7 @@ int main()
     cout << "...Results obtained and stored" << endl;
     cout << endl;
     cout << "Inserting the same elements into T1, but in an ordered fashion so we have a tall and skinny tree" << endl;
-    for (int i = 0; i < nums.size(); i++)
+    for (unsigned int i = 0; i < nums.size(); i++)
     {
         T1.insert(nums[i]);
     }
