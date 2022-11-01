@@ -101,18 +101,38 @@ int main()
     cout << "Specifications:" << endl;
     cout << "- The membership test will use values between [0, 999999] for 10000 times." << endl;
 
+    double minMembershipT1 = 100;
+    double maxMembershipT1 = 0;
+    double minMembershipT2 = 100;
+    double maxMembershipT2 = 0;
+    double temp;
+
     for (int i = 0; i < 10000; i++)
     {
         insertVal = rand() % 1000000;
         start = clock();
         T2.contains(insertVal);
         finish = clock();
-        averageMembershipT2 += elapsed_time(start, finish);
+        temp = elapsed_time(start, finish);
+        averageMembershipT2 += temp;
+        if(temp > maxMembershipT2){
+            maxMembershipT2 =temp;
+        }
+        else if(temp < minMembershipT2){
+            minMembershipT2 =temp;
+        }
 
         start = clock();
         T1.contains(insertVal);
         finish = clock();
-        averageMembershipT1 += elapsed_time(start, finish);
+        temp = elapsed_time(start, finish);
+        averageMembershipT1 += temp;
+        if(temp > maxMembershipT1){
+            maxMembershipT1 =temp;
+        }
+        else if(temp < minMembershipT1){
+            minMembershipT1 =temp;
+        }
     }
     averageMembershipT1 = averageMembershipT1/10000;
     averageMembershipT2 = averageMembershipT2/10000;
@@ -125,8 +145,12 @@ int main()
          << ", T2 = " << averageInsertionT2 << endl;
     cout << "Average Depth for: T1 = " << averageDepthT1 << ", T2 = " << averageDepthT2 << endl;
     cout << "Height for: T1 = " << heightT1 << ", T2 = " << heightT2 << endl;
+    cout << "Min Membership Time T1: " << minMembershipT1 
+         << ", T2 = " << minMembershipT2 << endl;
     cout << "Average Membership Time T1: " << averageMembershipT1 
          << ", T2 = " << averageMembershipT2 << endl;
+    cout << "Max Membership Time T1: " << maxMembershipT1 
+         << ", T2 = " << maxMembershipT2 << endl;
 
     cout << endl
          << "End of Part2" << endl;
