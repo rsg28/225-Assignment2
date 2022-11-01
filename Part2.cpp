@@ -114,17 +114,19 @@ int main()
         finish = clock();
         averageMembershipT1 += elapsed_time(start, finish);
     }
+    averageMembershipT1 = averageMembershipT1/10000;
+    averageMembershipT2 = averageMembershipT2/10000;
 
     // Findings report
     // Instead of diving averageMemberships and averageInsertion by the number of executed times, we write them in a cientific notation form
     // to avoid confusion and printing 0 (Highly innaccurate)
     cout << "------------------------Test Results------------------------ " << endl;
-    cout << "Average Insertion time for: T1 = " << averageInsertionT1 << "e-006"
-         << ", T2 = " << averageInsertionT2 << "e-006" << endl;
+    cout << "Average Insertion time for: T1 = " << averageInsertionT1
+         << ", T2 = " << averageInsertionT2 << endl;
     cout << "Average Depth for: T1 = " << averageDepthT1 << ", T2 = " << averageDepthT2 << endl;
     cout << "Height for: T1 = " << heightT1 << ", T2 = " << heightT2 << endl;
-    cout << "Average Membership Time T1: " << averageMembershipT1 << "e-004"
-         << ", T2 = " << averageMembershipT2 << "e-004" << endl;
+    cout << "Average Membership Time T1: " << averageMembershipT1 
+         << ", T2 = " << averageMembershipT2 << endl;
 
     cout << endl
          << "End of Part2" << endl;
